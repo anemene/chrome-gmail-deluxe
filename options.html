@@ -59,7 +59,11 @@ function loadSavedOptions() {
     return;
   }
   var domainName = localStorage["domainName"];
+  var sendTo = localStorage["sendTo"];
   var windowOptions = localStorage["gmail_window_options"];
+  if (typeof sendTo != "undefined") {
+    document.getElementById('send_to').value = sendTo;
+  }
   if (typeof domainName != "undefined") {
     document.getElementById('domain_info').value = domainName;
   }
@@ -70,6 +74,12 @@ function loadSavedOptions() {
 }
 
 function saveOptions() {
+  var toVal = document.getElementById('send_to').value; 
+  if ((toVal != "") && (toVal.indexOf('.') == -1)) {
+    alert(chrome.i18n.getMessage("optDomainError", toVal));
+  } else {
+    window.localStorage["sendTo"] = toVal;
+  }
   var domainVal = document.getElementById('domain_info').value; 
   if ((domainVal != "") && (domainVal.indexOf('.') == -1)) {
     alert(chrome.i18n.getMessage("optDomainError", domainVal));
@@ -102,14 +112,18 @@ function saveOptions() {
     <br />
     <label><input onclick="saveOptions()" id="enable_shortcut" type="checkbox" /><span id="optEnableShortcut"></span></label>
   </div>
+  <div id="send_to_option" class="options_group" style="border-bottom: none; margin-bottom: 2em;">
+    Enter the email of the person ot people you want to email by defualt. Seperate emails with a ;
+    <input id="send_to" type="text" name="send_to" value="" style="width:400px" />
+  </div>
   <h2><span id="optGoogleApps"></span></h2>
   <div id="apps_for_domain_option" class="options_group" style="border-bottom: none; margin-bottom: 2em;">
     <span id="optDomain"></span><br />
     <span id="optConsumerGmail"></span><br />
     <input id="domain_info" type="text" name="domain_info" value="" style="width:400px" />
-    <input id="options_save" type="submit" value="Save" />
-  </div>
-  <div>
+    <br />
+  </div><input id="options_save" type="submit" value="Save" />
+  <div><br />
 	  The required fine print: <i>Gmail&trade; and Google Apps&trade; are registered trademarks of Google Inc. I am not affiliated with Google.</i>
   </div>
   </form>
