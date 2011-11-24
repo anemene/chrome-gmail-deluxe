@@ -21,8 +21,7 @@
       "32": "images/gmail-extension-32.png",
       "64": "images/gmail-extension-64.png"
    },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDCQCnCJzGR9vXKuOhT3MjgUTJzTcYiP2Jx1ROyGmrJL/RyhQto2XpTYxIJeckpGRmfCumltHz1M/kJXfAWBSEH2OzhRaDiJaUsdu+fHTAG9aGXBb1T++OUaZ89I6jhlHmFNsA+lpEGMh8RStUKDVW52fvr1mIL+NBNwu754iy/twIDAQAB",
-   "name": "Send to One or More People with Gmail (with button)",
+   "name": "Send to Gmail Deluxe",
    "default_locale": "en",
    "options_page": "options.html",
    "permissions": [ "tabs", "http://*/*", "https://*/*", "http://*.google.com/", "contextMenus" ],
