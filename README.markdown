@@ -1,12 +1,28 @@
-Some pages include clickable email addresses (mailto: links). By default they open in a mail application like Outlook Express. This Chrome extension makes sure they open in Gmail instead (if you don't see the point, take a look at [craigslist](http://santabarbara.craigslist.org/sub/)).
+This is a modification of three extensions:
+1. Send using Gmail™ (no button) by Jacopo
+Download at: https://chrome.google.com/webstore/detail/ahldefgplekckalfcolhhnljbbgaiboc
 
-It is a modification of the original Google extension [Send from Gmail][1], but it won't add any extra button to the minimalistic Chrome toolbar. Besides a couple of bugfixes, it adds the ability to open links in a new window. See the [extension gallery page][2] for the changelog.
+Github at: https://github.com/Jacopo/chrome-gmail-no-button/
 
-The 'Email this page' feature is optionally available from the right-click menu.
+2. Send from Gmail (by Google) by Google
+https://chrome.google.com/webstore/detail/pgphcomnlaojlmmcjmiddhdapjpbgeoc
 
-Less is more!
+3. Email this page (by Google) by Google
+https://chrome.google.com/webstore/detail/dbeoemfhkdniadbojeencpkgmobndpai
 
-The required fine print: Gmail and Google Apps are trademarks of Google Inc. I am not affiliated with Google.
+Jacopo's extension and the Google extensions each have different feature sets, but I want all in one extension. So I'm combining them to add all the funtionality into a single extension.
 
-[1]: https://chrome.google.com/extensions/detail/pgphcomnlaojlmmcjmiddhdapjpbgeoc
-[2]: https://chrome.google.com/extensions/detail/ahldefgplekckalfcolhhnljbbgaiboc
+I'm also intrested in adding features.
+
+So far, I've added the ability to hard code one or more email addresses to send a page to.
+
+Problems: BUTTON DOES NOT WORK
+
+Future changes:
+Will get a better icon (right now using the Share Icon: http://shareicons.com)
+Will make button work
+Will add option to turn off button
+Will clean up code
+
+
+The latest version can be found at https://github.com/anemene/chrome-gmail-deluxe
