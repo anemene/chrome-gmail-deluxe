@@ -85,7 +85,16 @@ function sendToKnownPorts(msg) {
 }
 
 
-
+var to = "";
+  if ((typeof localStorage["sendTo"] != "undefined") &&
+ 	    (localStorage["sendTo"] != "")) {
+    to += localStorage["sendTo"];
+  }
+  
+  
+  var eSubject = "";
+  var eBody = "";
+  
 // Context menu callbacks
 function menuClicked(type, info, tab) {
   var emailStr = "";
@@ -103,11 +112,11 @@ function menuClicked(type, info, tab) {
     break;
   case 'link':
     emailStr = info.linkUrl;
-    emailSubj = "A nice link";
+    emailSubj = tab.title;
     break;
   default:
     emailStr = info.srcUrl;
-    emailSubj = "A nice " + type;
+    emailSubj = tab.title;
   }
   if (addPage)
     emailStr = emailStr + "\nFrom: " + info.pageUrl;
@@ -115,7 +124,7 @@ function menuClicked(type, info, tab) {
 }
 function openGmail(emailStr, emailSubj) {
   // Build the Gmail URL
-  var gmailFullUrl = makeGmailDomainUrl() + "mail/?view=cm&fs=1&tf=1&su=" + encodeURIComponent(emailSubj) + "&body=" + encodeURIComponent(emailStr);
+  var gmailFullUrl = makeGmailDomainUrl() + "mail/?view=cm&fs=1&tf=1&to=" + to + "&su=" + encodeURIComponent(emailSubj) + "&body=" + encodeURIComponent(emailStr);
 
   // Open the composition window/tab
   window.open(gmailFullUrl,"_blank",window.localStorage["gmail_window_options"]);
@@ -125,6 +134,24 @@ function creationCallback() {
     console.log("Error creating context menu: ", chrome.extension.lastError);
 }
 
+chrome.browserAction.onClicked.addListener(function (tab) {
+  // Build the Gmail URL
+var emailSubject = "";
+  if (emailSubject != "undefined") 
+  {
+  emailSubject += eSubject;
+  }
+
+var emailBody = "";
+  if (emailBody != "undefined")
+  {
+  emailBody += eBody;
+  }
+
+  var gmailFullUrl = makeGmailDomainUrl() + "mail/?view=cm&fs=1&tf=1&to=" + encodeURIComponent(to) + "&su=" + encodeURIComponent(emailSubject) + "&body=" + encodeURIComponent(emailBody);
+  // Open the composition window/tab
+  window.open(gmailFullUrl,"_blank",window.localStorage["gmail_window_options"]);
+});
 
 // Right-click menus registration
 function refreshContextMenus() {
