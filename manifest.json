@@ -1,23 +1,31 @@
 {
    "background_page": "background.html",
+   "browser_action": {
+      "default_icon": "images/gmail-extension-19.png",
+      "default_title": "Send this link with Gmail"
+   },
    "content_scripts": [ {
       "all_frames": true,
       "js": [ "mailto.js" ],
-      "matches": [ "<all_urls>" ]
+      "matches": [ "http://*/*", "\u003Call_urls\u003E" ]
+   }, {
+      "all_frames": true,
+      "js": [ "infopasser.js" ],
+      "matches": [ "http://*/*" ],
+      "run_at": "document_start"
    } ],
-   "permissions": [
-	"contextMenus"
-   ],
-   "description": "__MSG_extDesc__",
+   "description": "Makes Gmail your default email application and provides a button to compose a Gmail message to quickly share a link via email",
    "icons": {
       "128": "images/gmail-extension-128.png",
       "16": "images/gmail-extension-16.png",
       "32": "images/gmail-extension-32.png",
-      "64": "images/gmail-extension-64.png",
-      "48": "images/gmail-extension-48.png"
+      "64": "images/gmail-extension-64.png"
    },
-   "name": "__MSG_extName__",
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDCQCnCJzGR9vXKuOhT3MjgUTJzTcYiP2Jx1ROyGmrJL/RyhQto2XpTYxIJeckpGRmfCumltHz1M/kJXfAWBSEH2OzhRaDiJaUsdu+fHTAG9aGXBb1T++OUaZ89I6jhlHmFNsA+lpEGMh8RStUKDVW52fvr1mIL+NBNwu754iy/twIDAQAB",
+   "name": "Send to One or More People with Gmail (with button)",
    "default_locale": "en",
    "options_page": "options.html",
-   "version": "1.11.12.1"
+   "permissions": [ "tabs", "http://*/*", "https://*/*", "http://*.google.com/", "contextMenus" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.0.0"
 }
