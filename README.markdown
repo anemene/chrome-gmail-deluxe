@@ -1,5 +1,5 @@
 This is a modification of three extensions:
-1. Send using Gmail™ (no button) by Jacopo
+1. Send using Gmail (no button) by Jacopo
 Download at: https://chrome.google.com/webstore/detail/ahldefgplekckalfcolhhnljbbgaiboc
 
 Github at: https://github.com/Jacopo/chrome-gmail-no-button/
